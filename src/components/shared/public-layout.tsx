@@ -115,7 +115,7 @@ function FloatingNavbar({
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/explore-tools", label: "Tools" },
+    { href: "/tools", label: "Tools" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -258,19 +258,19 @@ function Footer() {
 
   const footerLinks = {
     product: [
-      { href: "/explore-tools", label: "All Tools" },
+      { href: "/tools", label: "All Tools" },
       { href: "/unicode-preeti-converter", label: "Font Converter" },
-      { href: "#", label: "Roadmap" },
+      { href: "/roadmap", label: "Roadmap" },
     ],
     company: [
       { href: "/about", label: "About Us" },
       { href: "/contact", label: "Contact" },
-      { href: "#", label: "Blog" },
+      { href: "https://blog.ctrlbits.com", label: "Blog" },
     ],
     legal: [
-      { href: "#", label: "Privacy Policy" },
-      { href: "#", label: "Terms of Service" },
-      { href: "#", label: "Cookie Policy" },
+      { href: "/privacy-policy", label: "Privacy Policy" },
+      { href: "/terms-of-service", label: "Terms of Service" },
+      { href: "/cookie-policy", label: "Cookie Policy" },
     ],
   };
 

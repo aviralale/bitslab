@@ -18,9 +18,11 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
 
 export default function ExploreToolsPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const allTools = [
     {
@@ -321,6 +323,7 @@ export default function ExploreToolsPage() {
             size="lg"
             variant="ghost"
             className="rounded-full px-8 h-12 text-base border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900"
+            onClick={() => navigate("/contact")}
           >
             Contact Us
             <ArrowRight className="w-4 h-4 ml-2" />

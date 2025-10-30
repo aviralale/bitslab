@@ -15,8 +15,10 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function AboutBitsLabPage() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white dark:bg-black">
       {/* Dot Matrix Background */}
@@ -264,6 +266,7 @@ export default function AboutBitsLabPage() {
                 <Button
                   size="lg"
                   className="rounded-full px-8 h-12 text-base group"
+                  onClick={() => window.open("https://ctrlbits.com", "_blank")}
                 >
                   Visit Ctrl Bits
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -272,6 +275,7 @@ export default function AboutBitsLabPage() {
                   size="lg"
                   variant="ghost"
                   className="rounded-full px-8 h-12 text-base border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900"
+                  onClick={() => navigate("/contact")}
                 >
                   Contact Us
                 </Button>

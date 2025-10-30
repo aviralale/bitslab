@@ -7,12 +7,31 @@ import Homepage from "./pages/HomePage";
 import ExploreToolsPage from "./pages/ExploreToolsPage";
 import AboutBitsLabPage from "./pages/AboutBitsLabPage";
 import ContactPage from "./pages/ContactUsPage";
+import RoadmapPage from "./pages/RoadMapsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
+import CookiePolicyPage from "./pages/CookiePolicyPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
+  // 404 page should not have any layout
+  if (location.pathname === "*" || !children) {
+    return <>{children}</>;
+  }
+
   // Pages that use the public layout (floating navbar + footer)
-  const publicPages = ["/", "/explore-tools", "/about", "/contact"];
+  const publicPages = [
+    "/",
+    "/tools",
+    "/about",
+    "/contact",
+    "/roadmap",
+    "/privacy-policy",
+    "/terms-of-service",
+    "/cookie-policy",
+  ];
   const isPublicPage = publicPages.includes(location.pathname);
 
   // Public pages get the floating navbar and footer
@@ -27,18 +46,83 @@ function ConditionalLayout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="theme">
-      <ConditionalLayout>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/explore-tools" element={<ExploreToolsPage />} />
-          <Route path="/about" element={<AboutBitsLabPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route
-            path="/unicode-preeti-converter"
-            element={<UnicodePreetiConverterPage />}
-          />
-        </Routes>
-      </ConditionalLayout>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ConditionalLayout>
+              <Homepage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/tools"
+          element={
+            <ConditionalLayout>
+              <ExploreToolsPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <ConditionalLayout>
+              <AboutBitsLabPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <ConditionalLayout>
+              <ContactPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/roadmap"
+          element={
+            <ConditionalLayout>
+              <RoadmapPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <ConditionalLayout>
+              <PrivacyPolicyPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/terms-of-service"
+          element={
+            <ConditionalLayout>
+              <TermsOfServicePage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/cookie-policy"
+          element={
+            <ConditionalLayout>
+              <CookiePolicyPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/unicode-preeti-converter"
+          element={
+            <ConditionalLayout>
+              <UnicodePreetiConverterPage />
+            </ConditionalLayout>
+          }
+        />
+
+        {/* 404 Page - No layout */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </ThemeProvider>
   );
 }

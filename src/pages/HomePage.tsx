@@ -83,7 +83,7 @@ export default function Homepage() {
                 <Button
                   size="lg"
                   className="rounded-full px-8 h-12 text-base group"
-                  onClick={() => navigate("/explore-tools")}
+                  onClick={() => navigate("/tools")}
                 >
                   Explore Tools
                   <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

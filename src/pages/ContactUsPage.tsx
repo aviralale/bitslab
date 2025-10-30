@@ -4,11 +4,11 @@ import {
   MapPin,
   Send,
   Github,
-  Twitter,
   Linkedin,
   MessageSquare,
   Clock,
   CheckCircle2,
+  Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -310,17 +310,17 @@ export default function ContactPage() {
                   </h4>
                   <div className="flex gap-3">
                     <SocialLink
-                      href="#"
+                      href="https://github.com/ctrlbits"
                       icon={<Github className="w-4 h-4" />}
                       label="GitHub"
                     />
                     <SocialLink
-                      href="#"
-                      icon={<Twitter className="w-4 h-4" />}
-                      label="Twitter"
+                      href="https://instagram.com/ctrl.bits"
+                      icon={<Instagram className="w-4 h-4" />}
+                      label="Instagram"
                     />
                     <SocialLink
-                      href="#"
+                      href="https://www.linkedin.com/company/ctrlbits"
                       icon={<Linkedin className="w-4 h-4" />}
                       label="LinkedIn"
                     />
@@ -457,6 +457,7 @@ function SocialLink({
     <a
       href={href}
       aria-label={label}
+      target="_blank"
       className="inline-flex items-center justify-center w-12 h-12 border border-neutral-200 dark:border-neutral-800 rounded-full text-neutral-400 dark:text-neutral-600 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
     >
       {icon}
