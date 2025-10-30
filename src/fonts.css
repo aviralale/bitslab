@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Preeti";
+  src: url("/fonts/preeti.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.font-preeti {
+  font-family: "Preeti", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
