@@ -10,6 +10,7 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { PenLine, QrCode, FileText } from "lucide-react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const links = [
@@ -18,6 +19,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
       href: "/unicode-preeti-converter",
       icon: (
         <IconLanguage className="h-5 w-5 shrink-0 text-black dark:text-white" />
+      ),
+    },
+    {
+      label: "Text Formatter",
+      href: "/text-formatter",
+      icon: <PenLine className="h-5 w-5 shrink-0 text-black dark:text-white" />,
+    },
+    {
+      label: "QR & Barcode Generator",
+      href: "/qr-barcode-generator",
+      icon: <QrCode className="h-5 w-5 shrink-0 text-black dark:text-white" />,
+    },
+    {
+      label: "Invoice Generator",
+      href: "/invoice-generator",
+      icon: (
+        <FileText className="h-5 w-5 shrink-0 text-black dark:text-white" />
       ),
     },
   ];
@@ -57,7 +75,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div
       className={cn(
         "relative w-full flex flex-col md:flex-row overflow-hidden",
-        "h-screen bg-white dark:bg-black"
+        "h-screen bg-white dark:bg-black",
       )}
     >
       {/* Dot Matrix Background */}
@@ -207,7 +225,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     Bit Labs
                   </p>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-600 truncate">
-                    v1.0.0
+                    v1.12.0
                   </p>
                 </div>
               </div>

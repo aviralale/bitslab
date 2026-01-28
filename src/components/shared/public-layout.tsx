@@ -116,6 +116,7 @@ function FloatingNavbar({
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/tools", label: "Tools" },
+    { href: "/invoice-generator", label: "Invoice" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -130,14 +131,14 @@ function FloatingNavbar({
         style={{ y: navbarY, opacity: navbarOpacity }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled ? "py-4" : "py-6"
+          scrolled ? "py-4" : "py-6",
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={cn(
               "relative bg-white/80 dark:bg-black/80 backdrop-blur-lg border border-neutral-200 dark:border-neutral-800 transition-all duration-300",
-              scrolled ? "rounded-full shadow-lg" : "rounded-3xl shadow-md"
+              scrolled ? "rounded-full shadow-lg" : "rounded-3xl shadow-md",
             )}
           >
             <div className="flex items-center justify-between px-6 py-4">
@@ -175,7 +176,7 @@ function FloatingNavbar({
                         "rounded-full px-6 text-sm",
                         location.pathname === link.href
                           ? "bg-black dark:bg-white text-white dark:text-black"
-                          : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                          : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white",
                       )}
                     >
                       {link.label}
@@ -237,7 +238,7 @@ function FloatingNavbar({
                       "w-full justify-start text-base rounded-2xl h-12",
                       location.pathname === link.href
                         ? "bg-black dark:bg-white text-white dark:text-black"
-                        : "text-neutral-600 dark:text-neutral-400"
+                        : "text-neutral-600 dark:text-neutral-400",
                     )}
                   >
                     {link.label}
@@ -379,7 +380,15 @@ function Footer() {
         <div className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              © {currentYear} BitsLab by Ctrl Bits. All rights reserved.
+              © {currentYear} BitsLab by{" "}
+              <a
+                href="http://ctrlbits.com"
+                target="_blank"
+                className="font-medium hover:underline"
+              >
+                Ctrl Bits
+              </a>
+              . All rights reserved.
             </p>
             <div className="flex items-center gap-2">
               <div className="flex gap-1">
@@ -392,7 +401,7 @@ function Footer() {
                 <div className="w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700" />
               </div>
               <span className="text-xs text-neutral-400 dark:text-neutral-600 uppercase tracking-wider">
-                v1.0.0
+                v1.12.0
               </span>
             </div>
           </div>
@@ -408,6 +417,8 @@ function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
     <a
       href={href}
       className="inline-flex items-center justify-center w-10 h-10 border border-neutral-200 dark:border-neutral-800 rounded-full text-neutral-400 dark:text-neutral-600 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {icon}
     </a>

@@ -44,7 +44,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -288,8 +288,8 @@ export default function ContactPage() {
                   <ContactInfoCard
                     icon={<Mail className="w-5 h-5" />}
                     title="Email"
-                    content="hello@ctrlbits.com"
-                    href="mailto:hello@ctrlbits.com"
+                    content="hi@ctrlbits.com"
+                    href="mailto:hi@ctrlbits.com"
                   />
                   <ContactInfoCard
                     icon={<MapPin className="w-5 h-5" />}
@@ -364,7 +364,7 @@ export default function ContactPage() {
                 />
                 <FAQItem
                   question="Do you offer business or enterprise solutions?"
-                  answer="Yes! For custom solutions or enterprise needs, email us at hello@ctrlbits.com and we'll discuss how we can help."
+                  answer="Yes! For custom solutions or enterprise needs, email us at hi@ctrlbits.com and we'll discuss how we can help."
                 />
                 <FAQItem
                   question="How can I contribute to BitsLab?"
@@ -392,11 +392,11 @@ export default function ContactPage() {
                 You can also reach us directly at
               </p>
               <a
-                href="mailto:hello@ctrlbits.com"
+                href="mailto:hi@ctrlbits.com"
                 className="inline-flex items-center gap-2 text-2xl font-medium text-black dark:text-white hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
               >
                 <Mail className="w-6 h-6" />
-                hello@ctrlbits.com
+                hi@ctrlbits.com
               </a>
             </motion.div>
           </div>

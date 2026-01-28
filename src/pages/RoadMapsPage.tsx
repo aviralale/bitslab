@@ -49,13 +49,13 @@ export default function RoadmapPage() {
           icon: <Type className="w-5 h-5" />,
           title: "Text Formatter",
           description: "Clean up text, remove duplicates, and format with ease",
-          status: "in-progress" as const,
+          status: "completed" as const,
         },
         {
           icon: <Hash className="w-5 h-5" />,
           title: "Nepali Number Converter",
           description: "Convert between English and Nepali numerals",
-          status: "planned" as const,
+          status: "in-progress" as const,
         },
         {
           icon: <MessageSquare className="w-5 h-5" />,
@@ -131,21 +131,16 @@ export default function RoadmapPage() {
       tools: [
         {
           icon: <QrCode className="w-5 h-5" />,
-          title: "QR Code Generator",
-          description: "Create custom QR codes for URLs and text",
-          status: "planned" as const,
-        },
-        {
-          icon: <QrCode className="w-5 h-5" />,
-          title: "Barcode Generator",
-          description: "Generate barcodes for products and inventory",
-          status: "planned" as const,
+          title: "QR & Barcode Generator",
+          description:
+            "Create custom QR codes and barcodes for URLs, text, products, and more.",
+          status: "completed" as const,
         },
         {
           icon: <FileText className="w-5 h-5" />,
           title: "Invoice Generator",
           description: "Create professional invoices and bills",
-          status: "planned" as const,
+          status: "completed" as const,
         },
       ],
     },
@@ -175,17 +170,17 @@ export default function RoadmapPage() {
     completed: roadmapPhases.reduce(
       (acc, phase) =>
         acc + phase.tools.filter((t) => t.status === "completed").length,
-      0
+      0,
     ),
     inProgress: roadmapPhases.reduce(
       (acc, phase) =>
         acc + phase.tools.filter((t) => t.status === "in-progress").length,
-      0
+      0,
     ),
     planned: roadmapPhases.reduce(
       (acc, phase) =>
         acc + phase.tools.filter((t) => t.status === "planned").length,
-      0
+      0,
     ),
   };
 
@@ -308,8 +303,8 @@ export default function RoadmapPage() {
                       phase.status === "completed"
                         ? "bg-black dark:bg-white border-black dark:border-white"
                         : phase.status === "in-progress"
-                        ? "bg-white dark:bg-black border-black dark:border-white"
-                        : "bg-white dark:bg-black border-neutral-200 dark:border-neutral-800"
+                          ? "bg-white dark:bg-black border-black dark:border-white"
+                          : "bg-white dark:bg-black border-neutral-200 dark:border-neutral-800",
                     )}
                   >
                     {phase.status === "completed" ? (
@@ -336,15 +331,15 @@ export default function RoadmapPage() {
                           phase.status === "completed"
                             ? "bg-black dark:bg-white text-white dark:text-black"
                             : phase.status === "in-progress"
-                            ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white border border-neutral-200 dark:border-neutral-800"
-                            : "bg-neutral-50 dark:bg-neutral-950 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800"
+                              ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white border border-neutral-200 dark:border-neutral-800"
+                              : "bg-neutral-50 dark:bg-neutral-950 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800",
                         )}
                       >
                         {phase.status === "completed"
                           ? "Completed"
                           : phase.status === "in-progress"
-                          ? "In Progress"
-                          : "Planned"}
+                            ? "In Progress"
+                            : "Planned"}
                       </span>
                       <span className="text-sm text-neutral-500 dark:text-neutral-500">
                         {phase.quarter}
@@ -370,7 +365,7 @@ export default function RoadmapPage() {
                           "bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5 space-y-3",
                           tool.status === "completed"
                             ? "opacity-100"
-                            : "opacity-60"
+                            : "opacity-60",
                         )}
                       >
                         <div className="flex items-start justify-between gap-3">
@@ -380,7 +375,7 @@ export default function RoadmapPage() {
                                 "shrink-0 w-10 h-10 rounded-full border flex items-center justify-center",
                                 tool.status === "completed"
                                   ? "border-neutral-200 dark:border-neutral-800 text-black dark:text-white"
-                                  : "border-neutral-200 dark:border-neutral-800 text-neutral-400 dark:text-neutral-600"
+                                  : "border-neutral-200 dark:border-neutral-800 text-neutral-400 dark:text-neutral-600",
                               )}
                             >
                               {tool.icon}

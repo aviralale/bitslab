@@ -169,13 +169,22 @@ export default function Homepage() {
                 icon={<Type className="w-6 h-6" />}
                 title="Text Formatter"
                 description="Clean up messy text, remove duplicates, or change case with a single click. Fast, reliable, and completely free."
-                status="coming-soon"
+                status="available"
+                href="/text-formatter"
               />
               <ToolCard
                 icon={<QrCode className="w-6 h-6" />}
                 title="QR & Barcode Generator"
                 description="Create scannable QR codes or barcodes for menus, business cards, or products — customizable and ready to use."
-                status="coming-soon"
+                status="available"
+                href="/qr-barcode-generator"
+              />
+              <ToolCard
+                icon={<FileText className="w-6 h-6" />}
+                title="Invoice Generator"
+                description="Create professional invoices and bills with custom branding, multiple currencies, and instant PDF download."
+                status="available"
+                href="/invoice-generator"
               />
               <ToolCard
                 icon={<Sparkles className="w-6 h-6" />}
@@ -332,13 +341,13 @@ export default function Homepage() {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
-                <a href="mailto:hello@ctrlbits.com">
+                <a href="mailto:hi@ctrlbits.com">
                   <Button
                     size="lg"
                     variant="ghost"
                     className="rounded-full px-8 h-12 text-base border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-900"
                   >
-                    hello@ctrlbits.com
+                    hi@ctrlbits.com
                   </Button>
                 </a>
               </div>
@@ -373,7 +382,7 @@ function ToolCard({
       transition={{ duration: 0.3 }}
       className={cn(
         "relative bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 space-y-4 h-full group cursor-pointer",
-        status === "coming-soon" && "opacity-60"
+        status === "coming-soon" && "opacity-60",
       )}
     >
       {/* Status Badge */}

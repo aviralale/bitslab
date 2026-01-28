@@ -71,22 +71,17 @@ export default function ExploreToolsPage() {
       description:
         "Clean up text, remove duplicates, change case, and format with ease.",
       category: "Text & Language",
-      status: "coming-soon" as const,
+      status: "available" as const,
+      href: "/text-formatter",
     },
     {
       icon: <QrCode className="w-6 h-6" />,
-      title: "QR Code Generator",
-      description: "Create custom QR codes for URLs, text, contacts, and more.",
-      category: "Generators",
-      status: "coming-soon" as const,
-    },
-    {
-      icon: <QrCode className="w-6 h-6" />,
-      title: "Barcode Generator",
+      title: "QR & Barcode Generator",
       description:
-        "Generate barcodes for products, inventory, and business needs.",
+        "Create custom QR codes and barcodes for URLs, text, products, and more. Highly customizable!",
       category: "Generators",
-      status: "coming-soon" as const,
+      status: "available" as const,
+      href: "/qr-barcode-generator",
     },
     {
       icon: <Hash className="w-6 h-6" />,
@@ -106,9 +101,11 @@ export default function ExploreToolsPage() {
     {
       icon: <FileText className="w-6 h-6" />,
       title: "Invoice Generator",
-      description: "Create professional invoices and bills quickly and easily.",
+      description:
+        "Create professional invoices and bills with custom branding, multiple currencies, and instant PDF download.",
       category: "Business Tools",
-      status: "coming-soon" as const,
+      status: "available" as const,
+      href: "/invoice-generator",
     },
     {
       icon: <FileImage className="w-6 h-6" />,
@@ -155,7 +152,7 @@ export default function ExploreToolsPage() {
     (tool) =>
       tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.category.toLowerCase().includes(searchQuery.toLowerCase())
+      tool.category.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   const categories = Array.from(new Set(allTools.map((tool) => tool.category)));
@@ -247,7 +244,7 @@ export default function ExploreToolsPage() {
         {/* Tools by Category */}
         {categories.map((category, categoryIndex) => {
           const categoryTools = filteredTools.filter(
-            (tool) => tool.category === category
+            (tool) => tool.category === category,
           );
 
           if (categoryTools.length === 0) return null;
@@ -359,7 +356,7 @@ function ToolCard({
         "relative bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 space-y-4 h-full group",
         tool.status === "available"
           ? "cursor-pointer"
-          : "opacity-60 cursor-not-allowed"
+          : "opacity-60 cursor-not-allowed",
       )}
     >
       {/* Status Badge */}

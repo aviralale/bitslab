@@ -12,6 +12,9 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import TextFormatterPage from "./pages/text-formatter";
+import QRBarcodeGeneratorPage from "./pages/qr-barcode-generator";
+import InvoiceGeneratorPage from "./pages/invoice-generator";
 
 function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -116,6 +119,30 @@ export default function App() {
           element={
             <ConditionalLayout>
               <UnicodePreetiConverterPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/text-formatter"
+          element={
+            <ConditionalLayout>
+              <TextFormatterPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/qr-barcode-generator"
+          element={
+            <ConditionalLayout>
+              <QRBarcodeGeneratorPage />
+            </ConditionalLayout>
+          }
+        />
+        <Route
+          path="/invoice-generator"
+          element={
+            <ConditionalLayout>
+              <InvoiceGeneratorPage />
             </ConditionalLayout>
           }
         />

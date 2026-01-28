@@ -369,7 +369,7 @@ export default function PrivacyPolicyPage() {
                 </a>
               </div>
             </div>
-            <a href="mailto:hello@ctrlbits.com">
+            <a href="mailto:hi@ctrlbits.com">
               <Button
                 size="lg"
                 className="rounded-full px-8 h-12 text-base bg-black dark:bg-white text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200"
