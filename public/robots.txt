@@ -11,11 +11,9 @@ Allow: /*.json$
 Allow: /*.xml$
 Allow: /public/
 Allow: /sitemap.xml
-Allow: /sitemap-pages.xml
 
 # Primary Sitemap
 Sitemap: https://lab.ctrlbits.com/sitemap.xml
-Sitemap: https://lab.ctrlbits.com/sitemap-pages.xml
 
 # Do NOT crawl:
 # - Admin paths (if any)

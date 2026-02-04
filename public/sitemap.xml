@@ -45,7 +45,7 @@
     <loc>https://lab.ctrlbits.com/unicode-preeti-converter</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>1.00</priority>
     <mobile:mobile/>
   </url>
 
@@ -53,7 +53,7 @@
     <loc>https://lab.ctrlbits.com/text-formatter</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>1.00</priority>
     <mobile:mobile/>
   </url>
 
@@ -61,7 +61,7 @@
     <loc>https://lab.ctrlbits.com/qr-barcode-generator</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>1.00</priority>
     <mobile:mobile/>
   </url>
 
@@ -69,27 +69,27 @@
     <loc>https://lab.ctrlbits.com/invoice-generator</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>1.00</priority>
     <mobile:mobile/>
   </url>
 
   <!-- Legal/Policy Pages (Lower Priority) -->
   <url>
-    <loc>https://lab.ctrlbits.com/privacy</loc>
+    <loc>https://lab.ctrlbits.com/privacy-policy</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
 
   <url>
-    <loc>https://lab.ctrlbits.com/terms</loc>
+    <loc>https://lab.ctrlbits.com/terms-of-service</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
 
   <url>
-    <loc>https://lab.ctrlbits.com/cookies</loc>
+    <loc>https://lab.ctrlbits.com/cookie-policy</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>

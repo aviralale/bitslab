@@ -16,6 +16,8 @@ import {
   Eye,
   Palette,
   Settings2,
+  QrCode,
+  ArrowRight,
 } from "lucide-react";
 import SEO from "@/seo/SEO";
 import { getPageMeta } from "@/seo/pageMeta";
@@ -141,6 +143,53 @@ const defaultStyle: InvoiceStyle = {
 
 export default function InvoiceGeneratorPage() {
   const meta = getPageMeta("/invoice-generator");
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Free Online Invoice Generator",
+        "url": "https://lab.ctrlbits.com/invoice-generator",
+        "description":
+          "Generate professional PDF invoices for freelancers and small businesses. Customizable tax rates, currency, and company logo.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "featureList": "PDF Export, Tax Calculation, Discount Management, Custom Logo",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Freelancers, Small Businesses",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://lab.ctrlbits.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://lab.ctrlbits.com/tools",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Invoice Generator",
+            "item": "https://lab.ctrlbits.com/invoice-generator",
+          },
+        ],
+      },
+    ],
+  };
   const [invoice, setInvoice] = useState<InvoiceData>(defaultInvoice);
   const [style, setStyle] = useState<InvoiceStyle>(defaultStyle);
   const [printSettings, setPrintSettings] =
@@ -291,8 +340,9 @@ export default function InvoiceGeneratorPage() {
         title={meta.title}
         description={meta.description}
         keywords={meta.keywords}
-        canonical="https://lab.ctrlbits.com/invoice-generator"
+        canonical="/invoice-generator"
         ogImage="https://lab.ctrlbits.com/og-invoice-generator.jpg"
+        structuredData={structuredData}
       />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none print:hidden">
@@ -315,7 +365,7 @@ export default function InvoiceGeneratorPage() {
             className="text-center mb-8 print:hidden"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-black dark:text-white mb-2">
-              Invoice Generator
+              Free Invoice Generator
             </h1>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
@@ -1516,6 +1566,37 @@ export default function InvoiceGeneratorPage() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* Related Tools */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="border-t border-neutral-200 dark:border-neutral-800 pt-8 space-y-4 print:hidden"
+          >
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-medium text-black dark:text-white">
+                Related Tools
+              </h3>
+            </div>
+            <a
+              href="/qr-barcode-generator"
+              className="block p-4 border border-neutral-200 dark:border-neutral-800 rounded-2xl hover:border-black dark:hover:border-white transition-colors group"
+            >
+              <div className="flex items-start gap-3">
+                <QrCode className="w-5 h-5 text-neutral-400 dark:text-neutral-600 group-hover:text-black dark:group-hover:text-white transition-colors" />
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-black dark:text-white">
+                    Need a QR code for your payment link? Use our QR Generator.
+                  </p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-1">
+                    Create scannable payment codes and add them to invoices in seconds.
+                  </p>
+                </div>
+                <ArrowRight className="w-4 h-4 text-neutral-400 dark:text-neutral-600 group-hover:text-black dark:group-hover:text-white group-hover:translate-x-1 transition-all" />
+              </div>
+            </a>
+          </motion.div>
 
           {/* Footer */}
           <motion.div

@@ -182,6 +182,7 @@ export default function Homepage() {
                 description="Clean up messy text, remove duplicates, or change case with a single click. Fast, reliable, and completely free."
                 status="available"
                 href="/text-formatter"
+                features={["Remove Duplicates", "JSON Clean", "Sort Lines"]}
               />
               <ToolCard
                 icon={<QrCode className="w-6 h-6" />}
@@ -384,12 +385,14 @@ function ToolCard({
   description,
   status,
   href,
+  features,
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
   status: "available" | "coming-soon";
   href?: string;
+  features?: string[];
 }) {
   const CardContent = (
     <motion.div
@@ -438,6 +441,24 @@ function ToolCard({
         <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
           {description}
         </p>
+        {features && features.length > 0 && (
+          <div className="pt-2">
+            <p className="text-xs text-neutral-500 dark:text-neutral-500 mb-1.5">
+              Includes:
+            </p>
+            <ul className="space-y-1">
+              {features.map((feature) => (
+                <li
+                  key={feature}
+                  className="text-xs text-neutral-600 dark:text-neutral-400 flex items-start gap-1.5"
+                >
+                  <span className="text-neutral-400 dark:text-neutral-600">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       {status === "available" && (
