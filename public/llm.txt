@@ -1,0 +1,141 @@
+# BitsLab - LLM Context and Information
+# Last Updated: 2026-02-04
+
+## Project Overview
+BitsLab is a free online utility toolkit designed for creators, developers, and everyday users, with special focus on the Nepal market.
+
+Platform: https://lab.ctrlbits.com
+Owner: Ctrl Bits
+Repository: https://github.com/aviralale/bitslab
+
+## Project Description
+BitsLab provides a collection of productivity and conversion tools accessible directly from the browser. Tools are built with React, TypeScript, and Vite for optimal performance.
+
+## Available Tools
+
+### 1. Nepali Font Converter
+- Location: /unicode-preeti-converter
+- Purpose: Convert between English, Unicode, and Preeti fonts
+- Target Users: Students, designers, publishers
+- Features: Bidirectional conversion, instant processing, support for Nepali script
+
+### 2. Text Formatter
+- Location: /text-formatter
+- Purpose: Clean, format, and manipulate text
+- Features: Case conversion, text cleanup, code formatting (camelCase, snake_case, kebab-case), line manipulation
+- Metrics: Character count, word count, line count
+
+### 3. QR & Barcode Generator
+- Location: /qr-barcode-generator
+- Purpose: Create customizable QR codes and barcodes
+- Features: Multiple dot styles, logo overlay, color customization, error correction levels, barcode format support
+- Use Cases: Product labeling, URL sharing, event ticketing, document tracking
+
+### 4. Invoice Generator
+- Location: /invoice-generator
+- Purpose: Create professional invoices from the browser
+- Target Users: Freelancers, small business owners, consultants
+- Features: Professional templates, instant download, no sign-up required
+
+## Coming Soon Tools
+- Image Compressor
+- PDF Merger
+- PDF Splitter
+- PDF Compressor
+- Nepali Number Converter
+- Text to Speech (Nepali & English)
+
+## Technology Stack
+- Frontend Framework: React 18
+- Language: TypeScript
+- Build Tool: Vite
+- Styling: Tailwind CSS
+- Animations: Framer Motion
+- Routing: React Router v6
+- Icons: Lucide React
+- Code Quality: ESLint
+
+## Key Dependencies
+- qrcode: QR code generation
+- jsbarcode: Barcode generation
+- framer-motion: Smooth animations
+- react-router-dom: Client-side routing
+
+## Features & Capabilities
+- Dark mode and light mode support with system preference detection
+- Responsive mobile-first design
+- Real-time preview and processing
+- No sign-up required for tool access
+- Client-side processing for data privacy
+- History tracking for recent operations
+- Example galleries and guides for each tool
+- One-click export (copy and download)
+- Google Analytics integration for usage insights
+
+## Design System
+- Modern, clean UI with neutral color palette
+- Subtle animations for enhanced user experience
+- Mobile-responsive layout
+- Accessible components following WCAG guidelines
+- Dot matrix background pattern for visual interest
+
+## Analytics & Privacy
+- Google Analytics tracking ID: G-Y41MW4J1E4
+- Data collected: Page views, user interactions, device info, geographic location
+- Cookie-based tracking for preferences
+- Privacy policy: https://lab.ctrlbits.com/privacy-policy
+- Terms of Service: https://lab.ctrlbits.com/terms-of-service
+- Cookie Policy: https://lab.ctrlbits.com/cookie-policy
+
+## Website Structure
+- Homepage: / (Hero section, feature highlights, CTA buttons)
+- Tools Explorer: /tools (Searchable catalog of all tools)
+- About: /about (Project information and team details)
+- Contact: /contact (Support and contact form)
+- Roadmap: /roadmap (Product development roadmap)
+- Tool Pages: Individual pages for each tool with sidebar layout
+
+## Target Audience
+- Students (especially in Nepal for Nepali language support)
+- Designers and publishers
+- Developers and programmers
+- Small business owners and freelancers
+- Everyday users seeking utility tools
+- South Asian market (primary focus on Nepal)
+
+## Monetization Opportunities
+- Freemium model with premium features
+- API access for developers
+- Bulk processing for paid users
+- Enterprise licensing for organizations
+- Custom tool development services
+
+## SEO Optimization
+- XML Sitemap: https://lab.ctrlbits.com/sitemap.xml
+- robots.txt: https://lab.ctrlbits.com/robots.txt
+- Meta tags optimization (titles, descriptions)
+- Open Graph and Twitter Card tags
+- Structured data (Schema.org markup)
+- Mobile-friendly responsive design
+- Fast loading times via Vite optimization
+- Canonical URLs for proper indexing
+- Google Analytics integration
+
+## Contact & Support
+- Website: https://lab.ctrlbits.com
+- Contact Form: https://lab.ctrlbits.com/contact
+- GitHub: https://github.com/aviralale/bitslab
+- Social Media: Links available on footer
+
+## Contributing
+The project is open-source and welcomes community contributions. Users can report bugs, suggest features, and contribute code through the GitHub repository.
+
+## License
+Details available on GitHub repository and Terms of Service page.
+
+## Additional Notes
+- All tools are free to use without account creation
+- No limitations on number of conversions
+- Regular updates with new tools and features
+- Data processing happens client-side for privacy
+- Works on desktop, tablet, and mobile devices
