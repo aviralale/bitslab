@@ -1,0 +1,127 @@
+{
+  "name": "BitsLab - Simple Tools for Smarter Work",
+  "short_name": "BitsLab",
+  "description": "Your free online toolkit — built for creators, developers, and everyday users in Nepal. Convert, compress, and create instantly from your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshot-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/screenshot-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Text Formatter",
+      "short_name": "Text Formatter",
+      "description": "Format, clean, and transform text instantly",
+      "url": "/text-formatter?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/text-formatter-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "QR & Barcode Generator",
+      "short_name": "QR Generator",
+      "description": "Create custom QR codes and barcodes",
+      "url": "/qr-barcode-generator?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/qr-barcode-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Nepali Font Converter",
+      "short_name": "Font Converter",
+      "description": "Convert between Unicode and Preeti fonts",
+      "url": "/unicode-preeti-converter?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/unicode-converter-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Invoice Generator",
+      "short_name": "Invoice Generator",
+      "description": "Create professional invoices instantly",
+      "url": "/invoice-generator?source=pwa",
+      "icons": [
+        {
+          "src": "/icons/invoice-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshot-narrow-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "BitsLab home page"
+    },
+    {
+      "src": "/screenshots/screenshot-narrow-2.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Text Formatter tool"
+    },
+    {
+      "src": "/screenshots/screenshot-wide-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tools Explorer"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+}
