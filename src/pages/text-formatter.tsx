@@ -26,6 +26,51 @@ interface HistoryItem {
 
 export default function TextFormatterPage() {
   const meta = getPageMeta("/text-formatter");
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Online Text Formatter & Cleaner",
+        "url": "https://lab.ctrlbits.com/text-formatter",
+        "description":
+          "Free text manipulation tool. Remove duplicate lines, fix whitespace, sort lists, and convert case (upper/lower/camel) securely in your browser.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+        },
+        "featureList":
+          "Remove Duplicate Lines, Sort Lines, CamelCase Converter, Whitespace Remover",
+        "browserRequirements": "Requires JavaScript",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://lab.ctrlbits.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://lab.ctrlbits.com/tools",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Text Formatter",
+            "item": "https://lab.ctrlbits.com/text-formatter",
+          },
+        ],
+      },
+    ],
+  };
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [selectedFormatter, setSelectedFormatter] =
@@ -159,8 +204,9 @@ export default function TextFormatterPage() {
         title={meta.title}
         description={meta.description}
         keywords={meta.keywords}
-        canonical="https://lab.ctrlbits.com/text-formatter"
+        canonical="/text-formatter"
         ogImage="https://lab.ctrlbits.com/og-text-formatter.jpg"
+        structuredData={structuredData}
       />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">

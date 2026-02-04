@@ -39,7 +39,9 @@ export function SEO({
 }: SEOProps) {
   const fullTitle = title.includes("BitsLab") ? title : `${title} | BitsLab`;
   const canonicalUrl = canonical
-    ? `${SITE_URL}${canonical}`
+    ? canonical.startsWith("http")
+      ? canonical
+      : `${SITE_URL}${canonical}`
     : typeof window !== "undefined"
       ? window.location.href
       : SITE_URL;

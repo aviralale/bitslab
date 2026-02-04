@@ -21,6 +21,54 @@ import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function UnicodePreetiConverterPage() {
   const meta = getPageMeta("/unicode-preeti-converter");
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Nepali Unicode & Preeti Converter",
+        "url": "https://lab.ctrlbits.com/unicode-preeti-converter",
+        "description":
+          "Convert Preeti to Unicode and Unicode to Preeti instantly. A free, offline-capable Nepali font converter tool.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "NPR",
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Ctrl Bits",
+        },
+        "featureList":
+          "Unicode to Preeti conversion, Preeti to Unicode conversion, Romanized Nepali typing",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://lab.ctrlbits.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://lab.ctrlbits.com/tools",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Nepali Font Converter",
+            "item": "https://lab.ctrlbits.com/unicode-preeti-converter",
+          },
+        ],
+      },
+    ],
+  };
   const [mode, setMode] = useState<"english" | "unicode" | "preeti">("english");
   const [inputText, setInputText] = useState("");
   const [unicode, setUnicode] = useState("");
@@ -176,8 +224,9 @@ export default function UnicodePreetiConverterPage() {
         title={meta.title}
         description={meta.description}
         keywords={meta.keywords}
-        canonical="https://lab.ctrlbits.com/unicode-preeti-converter"
+        canonical="/unicode-preeti-converter"
         ogImage="https://lab.ctrlbits.com/og-unicode-preeti.jpg"
+        structuredData={structuredData}
       />
       {/* Dot Matrix Background */}
       {/* <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
@@ -200,7 +249,7 @@ export default function UnicodePreetiConverterPage() {
             className="text-center mb-8"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-black dark:text-white mb-2">
-              Unicode Converter
+              Nepali Font Converter: Unicode & Preeti
             </h1>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />

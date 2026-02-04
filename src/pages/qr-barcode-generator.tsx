@@ -96,6 +96,50 @@ const barcodeFormats = [
 
 export default function QRBarcodeGeneratorPage() {
   const meta = getPageMeta("/qr-barcode-generator");
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Free QR & Barcode Generator",
+        "url": "https://lab.ctrlbits.com/qr-barcode-generator",
+        "description":
+          "Create custom QR codes with logos and generate standard barcodes (UPC, EAN, Code128). No sign-up required, high-resolution download.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "fileFormat": "image/png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+        },
+        "keywords": "QR Code, Barcode, UPC, EAN, Code128, WiFi QR",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://lab.ctrlbits.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://lab.ctrlbits.com/tools",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "QR & Barcode Generator",
+            "item": "https://lab.ctrlbits.com/qr-barcode-generator",
+          },
+        ],
+      },
+    ],
+  };
   const [mode, setMode] = useState<"qr" | "barcode">("qr");
   const [qrOptions, setQROptions] = useState<QROptions>({
     text: "",
@@ -320,8 +364,9 @@ export default function QRBarcodeGeneratorPage() {
         title={meta.title}
         description={meta.description}
         keywords={meta.keywords}
-        canonical="https://lab.ctrlbits.com/qr-barcode-generator"
+        canonical="/qr-barcode-generator"
         ogImage="https://lab.ctrlbits.com/og-qr-barcode.jpg"
+        structuredData={structuredData}
       />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
@@ -344,7 +389,7 @@ export default function QRBarcodeGeneratorPage() {
             className="text-center mb-8"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-black dark:text-white mb-2">
-              QR & Barcode Generator
+              Free QR Code & Barcode Generator
             </h1>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
