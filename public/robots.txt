@@ -1,0 +1,42 @@
+# BitsLab Robots Configuration
+# Last Updated: 2026-02-04
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /.env.local
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+
+# Prevent crawling of specific file types that shouldn't be indexed
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: *.pdf$
+
+# Allow crawling of assets
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+
+# Specify sitemap location
+Sitemap: https://lab.ctrlbits.com/sitemap.xml
+
+# Crawl delay (in seconds) - be respectful to server
+Crawl-delay: 1
+
+# Request rate in pages per second
+Request-rate: 10/1s
