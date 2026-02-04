@@ -6,6 +6,7 @@ import {
   autoConvert,
 } from "@/utils/unicodePreetiConverter";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSEO } from "@/lib/seoHooks";
 import Header from "@/components/unicodePreetiConverter/header";
 import { examples } from "@/data/unicodePreetiConverterExamples.data";
 import ModeSelectionComponent from "@/components/unicodePreetiConverter/mode-selection";
@@ -17,6 +18,70 @@ import GuideSectionComponent from "@/components/unicodePreetiConverter/guide-sec
 import HistorySectionComponent from "@/components/unicodePreetiConverter/history-section";
 
 export default function UnicodePreetiConverterPage() {
+  // SEO Optimization
+  useSEO({
+    title: "Unicode to Preeti & Preeti to Unicode Converter | Nepali Font Tool",
+    description: "Instant and accurate conversion between Preeti (traditional), Unicode (Nepali), and Romanized English. Auto-detects font type. Free for typing Nepali online.",
+    imageUrl: "https://lab.ctrlbits.com/og-image.png",
+  });
+
+  // Add structured data schemas
+  React.useEffect(() => {
+    // WebApplication Schema
+    const webAppSchema = document.createElement('script');
+    webAppSchema.type = 'application/ld+json';
+    webAppSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Nepali Unicode & Preeti Converter",
+      "url": "https://lab.ctrlbits.com/unicode-preeti-converter",
+      "description": "Convert Preeti to Unicode and Unicode to Preeti instantly. A free, offline-capable Nepali font converter tool.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NPR"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Ctrl Bits"
+      },
+      "featureList": "Unicode to Preeti conversion, Preeti to Unicode conversion, Romanized Nepali typing"
+    });
+    document.head.appendChild(webAppSchema);
+
+    // BreadcrumbList Schema
+    const breadcrumbSchema = document.createElement('script');
+    breadcrumbSchema.type = 'application/ld+json';
+    breadcrumbSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://lab.ctrlbits.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://lab.ctrlbits.com/tools"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Nepali Font Converter",
+        "item": "https://lab.ctrlbits.com/unicode-preeti-converter"
+      }]
+    });
+    document.head.appendChild(breadcrumbSchema);
+
+    return () => {
+      document.head.removeChild(webAppSchema);
+      document.head.removeChild(breadcrumbSchema);
+    };
+  }, []);
+
   const [mode, setMode] = useState<"english" | "unicode" | "preeti">("english");
   const [inputText, setInputText] = useState("");
   const [unicode, setUnicode] = useState("");
@@ -189,7 +254,7 @@ export default function UnicodePreetiConverterPage() {
             className="text-center mb-8"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-black dark:text-white mb-2">
-              Unicode Converter
+              Nepali Font Converter: Unicode & Preeti
             </h1>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
@@ -303,6 +368,61 @@ export default function UnicodePreetiConverterPage() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* FAQ Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="border-t border-neutral-200 dark:border-neutral-800 pt-12 space-y-8"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-black dark:text-white mb-2">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                Common questions about Nepali font conversion
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-6 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-3">
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  How to convert Preeti to Unicode in Excel?
+                </h2>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Copy your Preeti text from Excel, paste it into the "Preeti" box above, and copy the Unicode result back to Excel. This tool works instantly in your browser without uploading any files to our servers.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-3">
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  What is the difference between Unicode and Preeti?
+                </h2>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Preeti is a legacy font mapping, while Unicode is the global standard for Nepali text supported by Facebook, Google, and mobile devices. Unicode ensures your Nepali text displays correctly across all platforms.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-3">
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  Can I convert Unicode back to Preeti?
+                </h2>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Yes! Simply select "Unicode" mode, paste your Unicode Nepali text, and get the Preeti version instantly. The converter works both ways for maximum flexibility.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-3">
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  Is this converter free to use?
+                </h2>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Absolutely! Our Nepali font converter is completely free with no sign-up required. All conversion happens in your browser for maximum privacy and speed.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Footer */}
           <motion.div

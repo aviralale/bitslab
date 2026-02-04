@@ -45,7 +45,7 @@
     <loc>https://lab.ctrlbits.com/unicode-preeti-converter</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
     <mobile:mobile/>
   </url>
 
@@ -53,7 +53,7 @@
     <loc>https://lab.ctrlbits.com/text-formatter</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
     <mobile:mobile/>
   </url>
 
@@ -61,7 +61,7 @@
     <loc>https://lab.ctrlbits.com/qr-barcode-generator</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
     <mobile:mobile/>
   </url>
 
@@ -69,7 +69,7 @@
     <loc>https://lab.ctrlbits.com/invoice-generator</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
     <mobile:mobile/>
   </url>
 

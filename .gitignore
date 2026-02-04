@@ -16,17 +16,9 @@ dist-ssr
 *.local
 
 # SEO Documentation (keep locally, don't push to GitHub)
-00_START_HERE.md
-SEO_QUICK_REFERENCE.md
-SEO_PAGE_TEMPLATE.md
-SEO_CONFIGURATION.md
-SEO_IMPLEMENTATION_CHECKLIST.md
-SEO_VERIFICATION_GUIDE.md
-SEO_SUMMARY.md
-SEO_COMPLETE_SUMMARY.md
-FILES_SUMMARY.md
-IMPLEMENTATION_COMPLETE.md
-CODEBASE_ANALYSIS.md
+*.md
+
+
 
 # Editor directories and files
 .vscode/*

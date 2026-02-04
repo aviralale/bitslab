@@ -10,6 +10,19 @@ Disallow: /node_modules/
 Disallow: /.env
 Disallow: /.env.local
 
+# Block AI scrapers that don't send traffic (optional but recommended)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
 # Specific rules for Google
 User-agent: Googlebot
 Allow: /

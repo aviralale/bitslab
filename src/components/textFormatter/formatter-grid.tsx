@@ -166,7 +166,7 @@ export default function FormatterGrid({
                       : "border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700"
                   }`}
                 >
-                  <div
+                  <h2
                     className={`text-sm font-medium ${
                       selectedOption === formatter.id
                         ? "text-white dark:text-black"
@@ -174,7 +174,7 @@ export default function FormatterGrid({
                     }`}
                   >
                     {formatter.name}
-                  </div>
+                  </h2>
                   <div
                     className={`text-xs mt-1 ${
                       selectedOption === formatter.id

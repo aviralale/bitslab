@@ -5,6 +5,7 @@ import {
   calculateStats,
   type FormatterOption,
 } from "@/utils/textFormatter";
+import { useSEO } from "@/lib/seoHooks";
 import { textFormatterExamples } from "@/data/textFormatterExamples.data";
 import { Copy, Zap, HelpCircle } from "lucide-react";
 import InputArea from "@/components/textFormatter/input-area";
@@ -22,6 +23,67 @@ interface HistoryItem {
 }
 
 export default function TextFormatterPage() {
+  // SEO Optimization
+  useSEO({
+    title: "Online Text Formatter - Remove Duplicates, Sort & Change Case",
+    description: "Clean your text instantly. Features: Remove duplicate lines, fix spacing, sort lists, and convert case (upper/lower/camel). Secure client-side processing.",
+    imageUrl: "https://lab.ctrlbits.com/og-image.png",
+  });
+
+  // Add structured data schemas
+  React.useEffect(() => {
+    // WebApplication Schema
+    const webAppSchema = document.createElement('script');
+    webAppSchema.type = 'application/ld+json';
+    webAppSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Text Formatter & Cleaner",
+      "url": "https://lab.ctrlbits.com/text-formatter",
+      "description": "Free text manipulation tool. Remove duplicate lines, fix whitespace, sort lists, and convert case (upper/lower/camel) securely in your browser.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": "Remove Duplicate Lines, Sort Lines, CamelCase Converter, Whitespace Remover",
+      "browserRequirements": "Requires JavaScript"
+    });
+    document.head.appendChild(webAppSchema);
+
+    // BreadcrumbList Schema
+    const breadcrumbSchema = document.createElement('script');
+    breadcrumbSchema.type = 'application/ld+json';
+    breadcrumbSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://lab.ctrlbits.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://lab.ctrlbits.com/tools"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Text Formatter",
+        "item": "https://lab.ctrlbits.com/text-formatter"
+      }]
+    });
+    document.head.appendChild(breadcrumbSchema);
+
+    return () => {
+      document.head.removeChild(webAppSchema);
+      document.head.removeChild(breadcrumbSchema);
+    };
+  }, []);
+
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [selectedFormatter, setSelectedFormatter] =

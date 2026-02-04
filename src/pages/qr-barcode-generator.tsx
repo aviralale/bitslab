@@ -7,6 +7,7 @@ import {
   type QRCornerSquareStyle,
   type QRCornerDotStyle,
 } from "@/utils/qrBarcodeGenerator";
+import { useSEO } from "@/lib/seoHooks";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { ColorPicker } from "@/components/ui/color-picker";
@@ -92,6 +93,67 @@ const barcodeFormats = [
 ];
 
 export default function QRBarcodeGeneratorPage() {
+  // SEO Optimization
+  useSEO({
+    title: "Free QR Code & Barcode Generator (No Sign-up) | WiFi, vCard & URL",
+    description: "Create custom QR codes for WiFi, Links, and vCards. Generate bulk barcodes (UPC, EAN, Code128). High-resolution PNG download with no watermarks.",
+    imageUrl: "https://lab.ctrlbits.com/og-image.png",
+  });
+
+  // Add structured data schemas
+  React.useEffect(() => {
+    // WebApplication Schema
+    const webAppSchema = document.createElement('script');
+    webAppSchema.type = 'application/ld+json';
+    webAppSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free QR & Barcode Generator",
+      "url": "https://lab.ctrlbits.com/qr-barcode-generator",
+      "description": "Create custom QR codes with logos and generate standard barcodes (UPC, EAN, Code128). No sign-up required, high-resolution download.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any",
+      "fileFormat": "image/png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "keywords": "QR Code, Barcode, UPC, EAN, Code128, WiFi QR"
+    });
+    document.head.appendChild(webAppSchema);
+
+    // BreadcrumbList Schema
+    const breadcrumbSchema = document.createElement('script');
+    breadcrumbSchema.type = 'application/ld+json';
+    breadcrumbSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://lab.ctrlbits.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://lab.ctrlbits.com/tools"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "QR & Barcode Generator",
+        "item": "https://lab.ctrlbits.com/qr-barcode-generator"
+      }]
+    });
+    document.head.appendChild(breadcrumbSchema);
+
+    return () => {
+      document.head.removeChild(webAppSchema);
+      document.head.removeChild(breadcrumbSchema);
+    };
+  }, []);
+
   const [mode, setMode] = useState<"qr" | "barcode">("qr");
   const [qrOptions, setQROptions] = useState<QROptions>({
     text: "",
@@ -333,7 +395,7 @@ export default function QRBarcodeGeneratorPage() {
             className="text-center mb-8"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-black dark:text-white mb-2">
-              QR & Barcode Generator
+              Free QR Code & Barcode Generator
             </h1>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
@@ -1270,6 +1332,111 @@ export default function QRBarcodeGeneratorPage() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* Supported Barcode Formats Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="border-t border-neutral-200 dark:border-neutral-800 pt-12 space-y-6"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-black dark:text-white mb-2">
+                Supported Barcode Formats
+              </h2>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                Generate professional barcodes for any industry
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="p-5 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-2">
+                <h3 className="font-medium text-black dark:text-white">
+                  CODE128
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Universal format for logistics, shipping, and product identification
+                </p>
+              </div>
+
+              <div className="p-5 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-2">
+                <h3 className="font-medium text-black dark:text-white">
+                  UPC-A
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Retail standard for North American products and point-of-sale systems
+                </p>
+              </div>
+
+              <div className="p-5 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-2">
+                <h3 className="font-medium text-black dark:text-white">
+                  EAN-13
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  International retail products, widely used in Europe and worldwide
+                </p>
+              </div>
+
+              <div className="p-5 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-2">
+                <h3 className="font-medium text-black dark:text-white">
+                  CODE39
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Industrial and military applications, alphanumeric support
+                </p>
+              </div>
+
+              <div className="p-5 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-2">
+                <h3 className="font-medium text-black dark:text-white">
+                  ITF-14
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Shipping containers and packaging in distribution
+                </p>
+              </div>
+
+              <div className="p-5 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-2">
+                <h3 className="font-medium text-black dark:text-white">
+                  Pharmacode
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Pharmaceutical packaging and medication identification
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 p-6 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-2xl">
+              <h2 className="text-lg font-medium text-black dark:text-white mb-3">
+                Free QR Code Generator - No Watermarks, No Sign-up Required
+              </h2>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+                Create custom QR codes for websites, WiFi networks, vCards, and more. Our tool generates high-resolution QR codes without watermarks, completely free. 
+                All processing happens in your browser for maximum privacy and speed.
+              </p>
+              <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                  <span>No watermarks on generated QR codes and barcodes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                  <span>No sign-up or registration required</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                  <span>Unlimited QR code and barcode generation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                  <span>Customizable colors, sizes, and error correction levels</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                  <span>Download as high-resolution PNG images</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
 
           {/* Footer */}
           <motion.div

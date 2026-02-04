@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/lib/seoHooks";
 import { Slider } from "@/components/ui/slider";
 import { ColorPicker } from "@/components/ui/color-picker";
 import {
@@ -16,6 +17,9 @@ import {
   Eye,
   Palette,
   Settings2,
+  QrCode,
+  ArrowRight,
+  Check,
 } from "lucide-react";
 
 interface InvoiceItem {
@@ -137,6 +141,70 @@ const defaultStyle: InvoiceStyle = {
 };
 
 export default function InvoiceGeneratorPage() {
+  // SEO Optimization
+  useSEO({
+    title: "Free Invoice Generator | Create PDF Invoices Online (GST/VAT Support)",
+    description: "Create professional PDF invoices instantly. Customizable currency, tax rates, and logo. Download simple invoices for freelancers and small businesses.",
+    imageUrl: "https://lab.ctrlbits.com/og-image.png",
+  });
+
+  // Add structured data schemas
+  React.useEffect(() => {
+    // WebApplication Schema
+    const webAppSchema = document.createElement('script');
+    webAppSchema.type = 'application/ld+json';
+    webAppSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Online Invoice Generator",
+      "url": "https://lab.ctrlbits.com/invoice-generator",
+      "description": "Generate professional PDF invoices for freelancers and small businesses. Customizable tax rates, currency, and company logo.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "featureList": "PDF Export, Tax Calculation, Discount Management, Custom Logo",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Freelancers, Small Businesses"
+      }
+    });
+    document.head.appendChild(webAppSchema);
+
+    // BreadcrumbList Schema
+    const breadcrumbSchema = document.createElement('script');
+    breadcrumbSchema.type = 'application/ld+json';
+    breadcrumbSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://lab.ctrlbits.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://lab.ctrlbits.com/tools"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Invoice Generator",
+        "item": "https://lab.ctrlbits.com/invoice-generator"
+      }]
+    });
+    document.head.appendChild(breadcrumbSchema);
+
+    return () => {
+      document.head.removeChild(webAppSchema);
+      document.head.removeChild(breadcrumbSchema);
+    };
+  }, []);
+
   const [invoice, setInvoice] = useState<InvoiceData>(defaultInvoice);
   const [style, setStyle] = useState<InvoiceStyle>(defaultStyle);
   const [printSettings, setPrintSettings] =
@@ -304,7 +372,7 @@ export default function InvoiceGeneratorPage() {
             className="text-center mb-8 print:hidden"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-black dark:text-white mb-2">
-              Invoice Generator
+              Free Invoice Generator
             </h1>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
@@ -1505,6 +1573,132 @@ export default function InvoiceGeneratorPage() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* How to Use Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="border-t border-neutral-200 dark:border-neutral-800 pt-12 space-y-6 print:hidden"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-black dark:text-white mb-2">
+                How to Create Professional Invoices
+              </h2>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                Free invoice generator for freelancers and small businesses
+              </p>
+            </div>
+
+            <div className="p-6 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-2xl space-y-4">
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Our free invoice generator makes it easy to create professional PDF invoices in minutes. Simply enter your business details, 
+                add your client information, itemize your products or services, and download your invoice as a PDF. Perfect for freelancers, 
+                consultants, and small business owners who need quick, professional invoicing without complex accounting software.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-6 mt-6">
+                <div className="space-y-3">
+                  <h3 className="text-lg font-medium text-black dark:text-white">
+                    Key Features
+                  </h3>
+                  <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                      <span>Customizable currency support (USD, EUR, NPR, INR, and more)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                      <span>Automatic tax and discount calculations (GST/VAT compatible)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                      <span>Add your business logo for professional branding</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                      <span>Unlimited line items and invoice customization</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  <h3 className="text-lg font-medium text-black dark:text-white">
+                    Quick Start Guide
+                  </h3>
+                  <ol className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-medium">
+                        1
+                      </span>
+                      <span>Enter your business name, address, and contact details</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-medium">
+                        2
+                      </span>
+                      <span>Add your client's information and invoice details</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-medium">
+                        3
+                      </span>
+                      <span>List your products/services with quantities and rates</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-medium">
+                        4
+                      </span>
+                      <span>Set tax and discount rates (automatic calculations)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-medium">
+                        5
+                      </span>
+                      <span>Download as PDF or print directly from your browser</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-xl">
+                <h4 className="text-sm font-medium text-black dark:text-white mb-2">
+                  💡 Pro Tip for Freelancers
+                </h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Save time by using the invoice number generator and setting consistent payment terms. 
+                  Our tool automatically calculates due dates and totals, making invoicing faster and error-free.
+                </p>
+              </div>
+            </div>
+
+            {/* Related Tools Section */}
+            <div className="mt-8 p-6 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-2xl">
+              <h3 className="text-lg font-medium text-black dark:text-white mb-3">
+                Related Tools
+              </h3>
+              <div className="space-y-4">
+                <a
+                  href="/qr-barcode-generator"
+                  className="block p-4 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-xl hover:border-black dark:hover:border-white transition-colors group"
+                >
+                  <div className="flex items-start gap-3">
+                    <QrCode className="w-5 h-5 text-neutral-400 dark:text-neutral-600 group-hover:text-black dark:group-hover:text-white transition-colors flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-sm font-medium text-black dark:text-white mb-1">
+                        Need a QR code for your payment link?
+                      </h4>
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400">
+                        Use our free QR Code Generator to create scannable payment codes for your invoices. 
+                        Add them to invoices for instant mobile payments.
+                      </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-neutral-400 dark:text-neutral-600 group-hover:text-black dark:group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0 mt-0.5" />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Footer */}
           <motion.div
