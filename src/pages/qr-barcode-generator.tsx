@@ -25,6 +25,9 @@ import {
   Check,
   X,
 } from "lucide-react";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 interface QROptions {
   text: string;
@@ -92,6 +95,7 @@ const barcodeFormats = [
 ];
 
 export default function QRBarcodeGeneratorPage() {
+  const meta = getPageMeta("/qr-barcode-generator");
   const [mode, setMode] = useState<"qr" | "barcode">("qr");
   const [qrOptions, setQROptions] = useState<QROptions>({
     text: "",
@@ -312,6 +316,13 @@ export default function QRBarcodeGeneratorPage() {
 
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/qr-barcode-generator"
+        ogImage="https://lab.ctrlbits.com/og-qr-barcode.jpg"
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -396,6 +407,13 @@ export default function QRBarcodeGeneratorPage() {
               </Button>
             </div>
           </motion.div>
+
+          {/* Description Section with SEO Content */}
+          <DescriptionSection
+            h1={meta.h1}
+            pageIntro={meta.pageIntro}
+            sections={meta.sections}
+          />
 
           {/* Main Layout */}
           <div className="grid lg:grid-cols-2 gap-8">

@@ -15,8 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function ContactPage() {
+  const meta = getPageMeta("/contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,6 +58,13 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/contact"
+        ogImage="https://lab.ctrlbits.com/og-contact.jpg"
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -119,6 +130,13 @@ export default function ContactPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
 
         {/* Main Contact Section */}
         <section className="border-b border-neutral-200 dark:border-neutral-800">

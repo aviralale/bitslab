@@ -19,10 +19,14 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function ExploreToolsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const meta = getPageMeta("/tools");
 
   const allTools = [
     {
@@ -159,6 +163,13 @@ export default function ExploreToolsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/tools"
+        ogImage="https://lab.ctrlbits.com/og-tools.jpg"
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -240,6 +251,13 @@ export default function ExploreToolsPage() {
             </div>
           </div>
         </motion.div>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
 
         {/* Tools by Category */}
         {categories.map((category, categoryIndex) => {

@@ -13,6 +13,9 @@ import FormatterGrid from "@/components/textFormatter/formatter-grid";
 import ExampleSelector from "@/components/textFormatter/example-selector";
 import HistorySection from "@/components/textFormatter/history-section";
 import { Button } from "@/components/ui/button";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 interface HistoryItem {
   input: string;
@@ -22,6 +25,7 @@ interface HistoryItem {
 }
 
 export default function TextFormatterPage() {
+  const meta = getPageMeta("/text-formatter");
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [selectedFormatter, setSelectedFormatter] =
@@ -151,6 +155,13 @@ export default function TextFormatterPage() {
 
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/text-formatter"
+        ogImage="https://lab.ctrlbits.com/og-text-formatter.jpg"
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -208,6 +219,13 @@ export default function TextFormatterPage() {
               Guide
             </Button>
           </motion.div>
+
+          {/* Description Section with SEO Content */}
+          <DescriptionSection
+            h1={meta.h1}
+            pageIntro={meta.pageIntro}
+            sections={meta.sections}
+          />
 
           {/* Main Layout */}
           <div className="grid lg:grid-cols-3 gap-8">

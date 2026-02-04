@@ -17,8 +17,12 @@ import {
 import { Button } from "@/components/ui/button";
 import type { JSX } from "react";
 import { useNavigate } from "react-router";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function TermsOfServicePage() {
+  const meta = getPageMeta("/terms");
   const lastUpdated = "October 30, 2025";
   const effectiveDate = "October 30, 2025";
   const navigate = useNavigate();
@@ -348,6 +352,13 @@ export default function TermsOfServicePage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/terms"
+        noIndex={false}
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -432,6 +443,13 @@ export default function TermsOfServicePage() {
             </div>
           </div>
         </motion.div>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
 
         {/* Terms Sections */}
         <div className="space-y-12">

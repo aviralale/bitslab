@@ -13,8 +13,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function PrivacyPolicyPage() {
+  const meta = getPageMeta("/privacy");
   const lastUpdated = "October 30, 2025";
 
   const sections = [
@@ -212,6 +216,13 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/privacy"
+        noIndex={false}
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -273,6 +284,13 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
         </motion.div>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
 
         {/* Policy Sections */}
         <div className="space-y-12">

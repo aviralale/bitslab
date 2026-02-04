@@ -1,8 +1,11 @@
 import { Route, Routes, useLocation } from "react-router-dom";
+
 import UnicodePreetiConverterPage from "./pages/unicode-preeti-converter";
 import { ThemeProvider } from "./components/theme-provider";
 import { Layout } from "./components/shared/layout";
 import { PublicLayout } from "./components/shared/public-layout";
+import SEO from "./seo/SEO";
+import { getPageMeta } from "./seo/pageMeta";
 import Homepage from "./pages/HomePage";
 import ExploreToolsPage from "./pages/ExploreToolsPage";
 import AboutBitsLabPage from "./pages/AboutBitsLabPage";
@@ -46,9 +49,29 @@ function ConditionalLayout({ children }: { children: React.ReactNode }) {
   return <Layout>{children}</Layout>;
 }
 
+/**
+ * SEO Manager Component
+ * Dynamically updates page metadata based on current route
+ */
+function SEOManager() {
+  const location = useLocation();
+  const meta = getPageMeta(location.pathname);
+
+  return (
+    <SEO
+      title={meta.title}
+      description={meta.description}
+      keywords={meta.keywords}
+      canonical={location.pathname}
+      ogImage={meta.ogImage}
+    />
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="theme">
+      <SEOManager />
       <Routes>
         <Route
           path="/"

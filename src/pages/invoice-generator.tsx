@@ -17,6 +17,9 @@ import {
   Palette,
   Settings2,
 } from "lucide-react";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 interface InvoiceItem {
   id: string;
@@ -137,6 +140,7 @@ const defaultStyle: InvoiceStyle = {
 };
 
 export default function InvoiceGeneratorPage() {
+  const meta = getPageMeta("/invoice-generator");
   const [invoice, setInvoice] = useState<InvoiceData>(defaultInvoice);
   const [style, setStyle] = useState<InvoiceStyle>(defaultStyle);
   const [printSettings, setPrintSettings] =
@@ -283,6 +287,13 @@ export default function InvoiceGeneratorPage() {
 
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/invoice-generator"
+        ogImage="https://lab.ctrlbits.com/og-invoice-generator.jpg"
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none print:hidden">
         <div
@@ -358,6 +369,13 @@ export default function InvoiceGeneratorPage() {
               </Button>
             </div>
           </motion.div>
+
+          {/* Description Section with SEO Content */}
+          <DescriptionSection
+            h1={meta.h1}
+            pageIntro={meta.pageIntro}
+            sections={meta.sections}
+          />
 
           {/* Main Content */}
           <div className="grid lg:grid-cols-2 gap-8 print:block">

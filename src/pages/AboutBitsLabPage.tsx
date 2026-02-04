@@ -16,11 +16,22 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function AboutBitsLabPage() {
   const navigate = useNavigate();
+  const meta = getPageMeta("/about");
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/about"
+        ogImage="https://lab.ctrlbits.com/og-about.jpg"
+      />
       {/* Dot Matrix Background */}
       <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -90,6 +101,13 @@ export default function AboutBitsLabPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
 
         {/* Story Section */}
         <section className="border-b border-neutral-200 dark:border-neutral-800">

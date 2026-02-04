@@ -1,29 +1,48 @@
 # BitsLab Robots Configuration
 # Last Updated: 2026-02-04
+# Production-grade robots.txt for Vite SPA with complete sitemap reference
 
-# Allow all search engines
+# === Default Rules (All User-Agents) ===
 User-agent: *
 Allow: /
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.json$
+Allow: /*.xml$
+Allow: /public/
+Allow: /sitemap.xml
+Allow: /sitemap-pages.xml
+
+# Primary Sitemap
+Sitemap: https://lab.ctrlbits.com/sitemap.xml
+Sitemap: https://lab.ctrlbits.com/sitemap-pages.xml
+
+# Do NOT crawl:
+# - Admin paths (if any)
+# - Environment files
+# - Build/config files
+# - Third-party/internal tooling
 Disallow: /admin/
+Disallow: /api/admin/
 Disallow: /.git/
-Disallow: /node_modules/
 Disallow: /.env
 Disallow: /.env.local
+Disallow: /.env.*.local
+Disallow: /node_modules/
+Disallow: /build/
+Disallow: /dist/
+Disallow: /coverage/
+Disallow: /.github/
+Disallow: /.next/
+Disallow: /.vite/
+Disallow: /tsconfig*
+Disallow: /vite.config*
+Disallow: /eslint.config*
+Disallow: /package*.json
+Disallow: /*.ts$
+Disallow: /*.tsx$
 
-# Specific rules for Google
-User-agent: Googlebot
-Allow: /
-
-# Specific rules for Bing
-User-agent: Bingbot
-Allow: /
-
-# Prevent crawling of specific file types that shouldn't be indexed
-Disallow: /*.json$
-Disallow: /*.xml$
-Disallow: *.pdf$
-
-# Allow crawling of assets
+# Allow assets by pattern (CSS, JS, images are allowed)
 Allow: /*.css$
 Allow: /*.js$
 Allow: /*.png$
@@ -31,12 +50,61 @@ Allow: /*.jpg$
 Allow: /*.jpeg$
 Allow: /*.gif$
 Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.eot$
 
-# Specify sitemap location
-Sitemap: https://lab.ctrlbits.com/sitemap.xml
+# === Google-Specific Rules ===
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
 
-# Crawl delay (in seconds) - be respectful to server
+# Allow Google to crawl all assets
+Allow: /*.css$
+Allow: /*.js$
+
+# === Bing-Specific Rules ===
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1
 
-# Request rate in pages per second
+# === AI/ML Bot Rules ===
+# Prevent training on user content (optional - comment out if you want to be indexed)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# === Slow/Aggressive Bot Rules ===
+User-agent: MJ12bot
+Crawl-delay: 10
+Request-rate: 1/10s
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+Request-rate: 1/10s
+
+# === Sitemap Location (Primary) ===
+Sitemap: https://lab.ctrlbits.com/sitemap.xml
+
+# === Crawl Politeness (General) ===
+# Default crawl delay for all bots: 1 second
+Crawl-delay: 1
 Request-rate: 10/1s
+
+# === Additional Guidelines ===
+# Note: This robots.txt applies to CRAWLERS only, not users.
+# For noindex control on specific pages, use meta robots in HTML head.
+# For authenticated content, use other mechanisms (authentication, etc).

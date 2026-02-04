@@ -15,14 +15,18 @@ import UnicodeOutputComponent from "@/components/unicodePreetiConverter/unicode-
 import PreetiOutputComponent from "@/components/unicodePreetiConverter/preeti-output";
 import GuideSectionComponent from "@/components/unicodePreetiConverter/guide-section";
 import HistorySectionComponent from "@/components/unicodePreetiConverter/history-section";
+import SEO from "@/seo/SEO";
+import { getPageMeta } from "@/seo/pageMeta";
+import { DescriptionSection } from "@/components/DescriptionSection";
 
 export default function UnicodePreetiConverterPage() {
+  const meta = getPageMeta("/unicode-preeti-converter");
   const [mode, setMode] = useState<"english" | "unicode" | "preeti">("english");
   const [inputText, setInputText] = useState("");
   const [unicode, setUnicode] = useState("");
   const [preeti, setPreeti] = useState("");
   const [copiedField, setCopiedField] = useState<"unicode" | "preeti" | null>(
-    null
+    null,
   );
   const [showGuide, setShowGuide] = useState(false);
   const [autoDetect, setAutoDetect] = useState(false);
@@ -168,6 +172,13 @@ export default function UnicodePreetiConverterPage() {
 
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black">
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical="https://lab.ctrlbits.com/unicode-preeti-converter"
+        ogImage="https://lab.ctrlbits.com/og-unicode-preeti.jpg"
+      />
       {/* Dot Matrix Background */}
       {/* <div className="fixed inset-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none">
         <div
@@ -211,6 +222,13 @@ export default function UnicodePreetiConverterPage() {
             detectedType={detectedType}
             showGuide={showGuide}
             setShowGuide={setShowGuide}
+          />
+
+          {/* Description Section with SEO Content */}
+          <DescriptionSection
+            h1={meta.h1}
+            pageIntro={meta.pageIntro}
+            sections={meta.sections}
           />
 
           {/* Mode Selection */}
