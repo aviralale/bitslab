@@ -212,7 +212,7 @@ export const PAGE_META: Record<string, PageMeta> = {
         heading: "How to Reach Us",
         body: "We're responsive and care about your feedback. Get in touch through any of these channels:",
         bullets: [
-          "Email: hello@ctrlbits.com",
+          "Email: hi@ctrlbits.com",
           "GitHub: github.com/aviralale/bitslab",
           "Social: Follow us on social media for updates",
         ],

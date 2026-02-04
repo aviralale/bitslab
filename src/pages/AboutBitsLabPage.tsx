@@ -102,13 +102,6 @@ export default function AboutBitsLabPage() {
           </div>
         </section>
 
-        {/* Description Section with SEO Content */}
-        <DescriptionSection
-          h1={meta.h1}
-          pageIntro={meta.pageIntro}
-          sections={meta.sections}
-        />
-
         {/* Story Section */}
         <section className="border-b border-neutral-200 dark:border-neutral-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
@@ -400,6 +393,13 @@ export default function AboutBitsLabPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
       </div>
     </div>
   );

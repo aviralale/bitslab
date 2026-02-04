@@ -224,13 +224,6 @@ export default function UnicodePreetiConverterPage() {
             setShowGuide={setShowGuide}
           />
 
-          {/* Description Section with SEO Content */}
-          <DescriptionSection
-            h1={meta.h1}
-            pageIntro={meta.pageIntro}
-            sections={meta.sections}
-          />
-
           {/* Mode Selection */}
           <AnimatePresence>
             {!autoDetect && (
@@ -373,6 +366,13 @@ export default function UnicodePreetiConverterPage() {
           background: #ccc;
         }
       `}</style>
+
+      {/* Description Section with SEO Content */}
+      <DescriptionSection
+        h1={meta.h1}
+        pageIntro={meta.pageIntro}
+        sections={meta.sections}
+      />
     </div>
   );
 }

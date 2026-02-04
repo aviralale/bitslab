@@ -252,13 +252,6 @@ export default function ExploreToolsPage() {
           </div>
         </motion.div>
 
-        {/* Description Section with SEO Content */}
-        <DescriptionSection
-          h1={meta.h1}
-          pageIntro={meta.pageIntro}
-          sections={meta.sections}
-        />
-
         {/* Tools by Category */}
         {categories.map((category, categoryIndex) => {
           const categoryTools = filteredTools.filter(
@@ -344,6 +337,13 @@ export default function ExploreToolsPage() {
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </motion.div>
+
+        {/* Description Section with SEO Content */}
+        <DescriptionSection
+          h1={meta.h1}
+          pageIntro={meta.pageIntro}
+          sections={meta.sections}
+        />
       </div>
     </div>
   );

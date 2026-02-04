@@ -25,7 +25,7 @@ export function generateOrganizationSchema() {
       "@type": "ContactPoint",
       contactType: "Customer Support",
       url: `${SITE_URL}/contact`,
-      email: "hello@ctrlbits.com",
+      email: "hi@ctrlbits.com",
     },
     address: {
       "@type": "PostalAddress",
